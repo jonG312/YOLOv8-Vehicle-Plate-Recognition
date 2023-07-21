@@ -197,6 +197,12 @@ cv2.destroyAllWindows()
 ![Result](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/Resources/car_-_2165%20(540p).gif)
 <p align="center"><strong>License plate vehicle prediction</strong></p>
 
+
+![Result](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/data/runs/detect/train4/PR_curve.png)
+<p align="center"><strong>Precision-Recall Curve</strong></p>
+
+
+
 - `Post-processing:` After obtaining the bounding box predictions from the YOLO model, perform non-maximum suppression (NMS) to filter out overlapping and low-confidence detections.
 
 - `License Plate Region Cropping:` For each remaining bounding box after NMS, crop the corresponding region from the original image. This region will contain the license plate.
