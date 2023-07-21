@@ -17,7 +17,7 @@
 
 - `Data Preprocessing:` Preprocess the dataset by resizing the images to a consistent resolution (e.g., 416x416 pixels), normalizing pixel values, and preparing the annotations in the YOLO format (x, y, width, height) normalized relative to the image size.
 
-![DataCollection](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/Resources/annotations.png)
+![annotations](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/Resources/annotations.png)
 
 - `Model Selection:` This model is trained with the YOLOv8 algorithm.
 
@@ -38,8 +38,10 @@ names:
 
 - `Train the YOLO Model:` Train the YOLO model on the custom dataset using a deep learning framework like TensorFlow or PyTorch. Fine-tune the pre-trained model on your ANPR dataset to achieve better performance.
 
-<a href=" https://colab.research.google.com/drive/1dZvFTLYFg0t72QWZ2GDf5EUfOQWBlYL1" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
+<p align="center">
+<a href="https://colab.research.google.com/github/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8CustomDataSet.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+</p>
 **Setting Environment:**
 
 ```
@@ -52,7 +54,7 @@ tf.test.gpu_device_name()
 !/opt/bin/nvidia-smi
 ```
 
-***Output:***     
+**Output:**    
 ```
 Thu Jul 20 22:02:33 2023       
 +-----------------------------------------------------------------------------+
