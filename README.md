@@ -194,12 +194,24 @@ cv2.destroyAllWindows()
 
 **Result:**
 
-![Result](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/Resources/car_-_2165%20(540p).gif)
-<p align="center"><strong>License plate vehicle prediction</strong></p>
+![Result-1](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/Resources/car_-_2165%20(540p).gif)
+<p align="center"><strong>License plate vehicle prediction</strong></p><br>
 
 
-![Result](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/data/runs/detect/train4/PR_curve.png)
-<p align="center"><strong>Precision-Recall Curve</strong></p>
+![Result-2](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/data/runs/detect/train4/PR_curve.png)
+<p align="center"><strong>Precision-Recall Curve</strong></p><br>
+
+![Result-3](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/data/runs/detect/train4/confusion_matrix_normalized.png)
+<p align="center"><strong>Confusion matriz-normalized</strong></p><br>
+
+
+![Result-4](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/data/runs/detect/train4/results.png)
+<p align="center"><strong>Train Result</strong></p><br>
+
+![Result-4](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/data/runs/detect/train4/val_batch1_pred.jpg)
+<p align="center"><strong>train batch</strong></p><br>
+
+
 
 
 
