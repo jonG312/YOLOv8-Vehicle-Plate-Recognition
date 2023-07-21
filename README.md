@@ -39,7 +39,7 @@ names:
 - `Train the YOLO Model:` Train the YOLO model on the custom dataset using a deep learning framework like TensorFlow or PyTorch. Fine-tune the pre-trained model on your ANPR dataset to achieve better performance.
 
 
-**YOLOv8 Custom Data-set**
+**YOLOv8 Custom Data-set*
 
 <a href="https://colab.research.google.com/github/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8CustomDataSet.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
@@ -123,6 +123,15 @@ locale.getpreferredencoding = getpreferredencoding
 ```
 !scp -r /content/runs '/content/gdrive/My Drive/YOLOv8_custom_data_set/data/
 ```
+
+**Prediction:**
+
+<a href="https://colab.research.google.com/drive/1gH8ExBjhRN0dk7pyz7d-eAKiFiM6Loz0?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+**Result:**
+
+![Result](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/Resources/car_-_2165%20(540p).gif)
+<p align="center"><strong>License plate vehicle prediction</strong></p>
 
 - `Post-processing:` After obtaining the bounding box predictions from the YOLO model, perform non-maximum suppression (NMS) to filter out overlapping and low-confidence detections.
 
