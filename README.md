@@ -17,7 +17,7 @@
 
 - `Data Preprocessing:` Preprocess the dataset by resizing the images to a consistent resolution (e.g., 416x416 pixels), normalizing pixel values, and preparing the annotations in the YOLO format (x, y, width, height) normalized relative to the image size.
 
-- `Model Selection:` For the implementation of this project I used YOLOv8 model 
+- `Model Selection:` This model is trained with the YOLOv8 algorithm.
 
 - `Model Architecture:` Set up the YOLO architecture with the appropriate number of output layers to predict bounding boxes and class probabilities. The last layer's number of neurons should match the total number of classes you are detecting (in this case, the number of alphanumeric characters).
 
