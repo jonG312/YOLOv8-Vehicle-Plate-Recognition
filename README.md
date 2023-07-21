@@ -12,6 +12,9 @@
 
 - `Dataset Collection:` Collect a dataset of annotated license plate images. The dataset should contain images of vehicles with annotated bounding boxes around the license plates and corresponding alphanumeric characters.
 
+![DataCollection](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/data/runs/detect/train4/train_batch1520.jpg)
+
+
 - `Data Preprocessing:` Preprocess the dataset by resizing the images to a consistent resolution (e.g., 416x416 pixels), normalizing pixel values, and preparing the annotations in the YOLO format (x, y, width, height) normalized relative to the image size.
 
 - `Model Selection:` For the implementation of this project I used YOLOv8 model 
