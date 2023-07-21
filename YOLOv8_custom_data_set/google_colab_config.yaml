@@ -1,0 +1,9 @@
+
+path: '/content/drive/My Drive/YOLOv8_custom_data_set/data/' # dataset root dir
+train: images/train  # train images (relative to 'path')
+val: images/train  # val images (relative to 'path')
+
+# Classes
+names:
+  0: vehicle registration plate
+  1: vehicle
