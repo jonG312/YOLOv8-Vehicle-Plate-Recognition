@@ -128,6 +128,70 @@ locale.getpreferredencoding = getpreferredencoding
 
 <a href="https://colab.research.google.com/drive/1gH8ExBjhRN0dk7pyz7d-eAKiFiM6Loz0?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
+**Setting enviroment:**
+
+```
+# Mounting google drive
+from google.colab import drive
+drive.mount('/content/drive')
+```
+```
+# Setting toolkit folder as working directory
+
+%cd /content/drive/My Drive/YOLOv8_custom_data_set/
+! ls
+```
+
+**Importing Dependencies:**
+```
+# Pip install ultralytics and dependencies and check software and hardware.
+%pip install ultralytics
+import ultralytics
+import os
+import cv2
+from ultralytics import YOLO
+ultralytics.checks()
+```
+```
+VIDEOS_DIR = '/content/drive/My Drive/YOLOv8_custom_data_set/videos'
+video_path = os.path.join(VIDEOS_DIR, 'car_-_2165 (540p).mp4')
+video_path_out = '{}_out.mp4'.format(video_path)
+```
+```
+cap = cv2.VideoCapture(video_path)
+ret, frame = cap.read()
+H, W, _ = frame.shape
+out = cv2.VideoWriter(video_path_out, cv2.VideoWriter_fourcc(*'.mp4'), int(cap.get(cv2.CAP_PROP_FPS)), (W, H))
+MODEL_DIR = '/content/drive/My Drive/YOLOv8_custom_data_set/'
+model_path = os.path.join(MODEL_DIR, 'runs', 'detect', 'train4', 'weights', 'last.pt')
+```
+**Prediction**
+```
+# Load a model
+model = YOLO(model_path)  # load a custom model
+
+threshold = 0.5
+
+while ret:
+
+    results = model(frame)[0]
+
+    for result in results.boxes.data.tolist():
+        x1, y1, x2, y2, score, class_id = result
+
+        if score > threshold:
+            cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 4)
+            cv2.putText(frame, results.names[int(class_id)].upper(), (int(x1), int(y1 - 10)),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.3, (0, 255, 0), 3, cv2.LINE_AA)
+
+    out.write(frame)
+    ret, frame = cap.read()
+
+cap.release()
+out.release()
+cv2.destroyAllWindows()
+```
+
 **Result:**
 
 ![Result](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/Resources/car_-_2165%20(540p).gif)
