@@ -41,9 +41,8 @@ names:
 
 **YOLOv8 Custom Data-set**
 
-<p align="left">
 <a href="https://colab.research.google.com/github/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8CustomDataSet.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-</p>
+
 
 **Setting Environment:**
 
@@ -124,7 +123,6 @@ locale.getpreferredencoding = getpreferredencoding
 ```
 !scp -r /content/runs '/content/gdrive/My Drive/YOLOv8_custom_data_set/data/
 ```
-
 
 - `Post-processing:` After obtaining the bounding box predictions from the YOLO model, perform non-maximum suppression (NMS) to filter out overlapping and low-confidence detections.
 
