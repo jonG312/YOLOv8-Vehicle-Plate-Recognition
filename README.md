@@ -17,11 +17,109 @@
 
 - `Data Preprocessing:` Preprocess the dataset by resizing the images to a consistent resolution (e.g., 416x416 pixels), normalizing pixel values, and preparing the annotations in the YOLO format (x, y, width, height) normalized relative to the image size.
 
+![DataCollection](https://github.com/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8_custom_data_set/Resources/annotations.png)
+
 - `Model Selection:` This model is trained with the YOLOv8 algorithm.
 
 - `Model Architecture:` Set up the YOLO architecture with the appropriate number of output layers to predict bounding boxes and class probabilities. The last layer's number of neurons should match the total number of classes you are detecting (in this case, the number of alphanumeric characters).
 
+**google_colab_config.yaml:**
+
+```
+path: '/content/drive/My Drive/YOLOv8_custom_data_set/data/' # dataset root dir
+train: images/train  # train images (relative to 'path')
+val: images/train  # val images (relative to 'path')
+
+# Classes
+names:
+  0: vehicle registration plate
+  1: vehicle
+```
+
 - `Train the YOLO Model:` Train the YOLO model on the custom dataset using a deep learning framework like TensorFlow or PyTorch. Fine-tune the pre-trained model on your ANPR dataset to achieve better performance.
+
+ (https://colab.research.google.com/github/jonG312/YOLOv8-Vehicle-Plate-Recognition/blob/main/YOLOv8CustomDataSet.ipynb)
+
+**Setting Environment:**
+
+```
+# importing GPU
+
+import tensorflow as tf
+tf.test.gpu_device_name()    
+
+# verifying GPU
+!/opt/bin/nvidia-smi
+```
+
+***Output:***     
+```
+Thu Jul 20 22:02:33 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.105.17   Driver Version: 525.105.17   CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla T4            Off  | 00000000:00:04.0 Off |                    0 |
+| N/A   42C    P0    25W /  70W |    387MiB / 15360MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
++-----------------------------------------------------------------------------+
+```
+
+```
+from tensorflow.python.client import device_lib
+device_lib.list_local_devices()
+```
+```     
+# Mounting google drive
+
+from google.colab import drive
+drive.mount('/content/drive')
+```
+```    
+ROOT_DIR = '/content/drive/My Drive/YOLOv8_custom_data_set/'
+     
+%cd /content/drive/My Drive/YOLOv8_custom_data_set/
+! ls
+```
+**Installing Dependencies:**
+```
+# Pip install ultralytics and dependencies and check software and hardware.
+%pip install ultralytics
+import os
+from ultralytics import YOLO
+```
+**Trainning Model:**
+```
+from ultralytics import YOLO
+# Load a model
+model = YOLO('yolov8n.yaml')  # build a new model from scratch
+model = YOLO('yolov8n.pt')  # load a pretrained model (recommended for training)
+
+# Use the model
+results = model.train(data=os.path.join(ROOT_DIR, "google_colab_config.yaml"), epochs=200)  # train the model
+```
+```
+import locale
+def getpreferredencoding(do_setlocale = True):
+    return "UTF-8"
+locale.getpreferredencoding = getpreferredencoding
+```
+**Pushing run into the folder data:**    
+
+```
+!scp -r /content/runs '/content/gdrive/My Drive/YOLOv8_custom_data_set/data/
+```
+
 
 - `Post-processing:` After obtaining the bounding box predictions from the YOLO model, perform non-maximum suppression (NMS) to filter out overlapping and low-confidence detections.
 
